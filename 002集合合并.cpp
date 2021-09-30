@@ -24,8 +24,8 @@ typedef struct{
 // 以下为函数原型   
 Status InitList(SqList &);  
 Status ListInsert(SqList &,int,ElemType);   //这是需要你编写的基本操作   
-Status GetElem(SqList,int,ElemType &);  //这是需要你编写的基本操作   
-int    ListLength(SqList);        //这是需要你编写的基本操作  
+Status GetElem(SqList,int,ElemType &);     //这是需要你编写的基本操作   
+int    ListLength(SqList);                 //这是需要你编写的基本操作  
 Status ListTraverse(SqList &,void(*)(ElemType));  
 void   ListUnion(SqList &,SqList);  
 void   out(ElemType);  
@@ -36,7 +36,7 @@ Status LocateElem(SqList, ElemType, Status (*)(ElemType,ElemType));
 Status InitList(SqList &L){   // 建立一个空的线性表 L  
     L.elem=(ElemType*)malloc(LIST_MAX_SIZE*sizeof(ElemType));  
 //  if ( !L.elem )  exit(-1);   // 失败则终止程序   
-    L.length=0;            // 空表长度为0  
+    L.length=0;                 // 空表长度为0  
     L.listsize=LIST_MAX_SIZE;  
     return OK;  
 }  
