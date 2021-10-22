@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 char input[100];
-int a=0,b=0,temp,flag;
+int a=0,b=0,temp,depth;
  
 void PrintGList(){
     for(int i=a;i<=b;i++)printf("%c",input[i]);
@@ -8,12 +8,12 @@ void PrintGList(){
 }
 void getHead(){
     printf("destroy tail\nfree list node\ngeneric list: ");
-    flag=-1;
+    depth=-1;
     for(int i=a;input[i]!='\0';i++){
         switch(input[i]){
-            case '(': flag++;if(!flag)a=i+1;break;        //第一个原子开始
-            case ')': flag--;if(!flag){b=i;goto j;}break; //第一个原子结束
-            case ',': if(!flag){b=i-1;goto j;}break;
+            case '(': depth++;if(!depth)a=i+1;break;        //第一个原子开始
+            case ')': depth--;if(!depth){b=i;goto j;}break; //第一个原子结束
+            case ',': if(!depth){b=i-1;goto j;}break;
             default : break;
         }
     }
@@ -21,7 +21,7 @@ void getHead(){
 }
 void getTail(){
     printf("free head node\nfree list node\ngeneric list: ");
-    flag=-1;
+    depth=-1;
     int t=0;
     for(int i=a;input[i]!='\0';i++){
         if(i==b){
@@ -29,9 +29,9 @@ void getTail(){
             break;
         }
         switch(input[i]){
-            case '(': flag++;break;
-            case ')': flag--;break;
-            case ',': if(!flag){input[i]='(';a=i;goto k;}
+            case '(': depth++;break;
+            case ')': depth--;break;
+            case ',': if(!depth){input[i]='(';a=i;goto k;}break;
             default : break;
         }
     }
