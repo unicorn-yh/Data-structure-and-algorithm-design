@@ -32,7 +32,7 @@ void backtrack(int i){      //搜索第i层结点
         x[i]=0;
 		currentweight-=weight[i];      
 	}
-   backtrack(i+1);                     //搜索右子树
+    backtrack(i+1);                     //搜索右子树
 }
 
 int main()
