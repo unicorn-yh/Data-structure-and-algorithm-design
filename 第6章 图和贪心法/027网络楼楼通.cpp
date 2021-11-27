@@ -41,7 +41,7 @@ void kruskal(int building,int cable){   //kruskal 克鲁斯卡尔算法，计算
     for(int i=0;i<cable;i++){
         if(judge(CableList[i].point1,CableList[i].point2)){   //如果两个相连节点的开头节点不一样
             sideselected++;                                   //选择该边
-            totalc6ost+=CableList[i].cost;                     //更新成本
+            totalcost+=CableList[i].cost;                     //更新成本
         }
         if(sideselected==building-1)break;
     }
